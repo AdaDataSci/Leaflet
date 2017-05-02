@@ -1,0 +1,24 @@
+---
+title: "Leaflet1"
+author: "AdaDataSci"
+date: "May 2, 2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Maps
+
+```{r}
+library(dplyr)
+library(leaflet)
+df <- data.frame(lat = runif(20, min = 5, max = 7),
+                 lng = runif(20, min = 3, max = 5))
+df %>% 
+  leaflet() %>%
+  addTiles() %>%
+  addMarkers(clusterOptions = markerClusterOptions())
+```
+
